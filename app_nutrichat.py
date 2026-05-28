@@ -9,7 +9,7 @@ import sys
 import time
 from langchain_google_genai import ChatGoogleGenerativeAI
 from langchain_core.messages import HumanMessage, AIMessage
-from langchain.agents import create_agent
+from langgraph.prebuilt import create_react_agent
 from config import (
     GOOGLE_API_KEY, LLM_MODEL, LLM_TEMPERATURE, SYSTEM_PROMPT,
     LLM_MAX_RETRIES, LLM_RETRY_WAIT_SECONDS,
@@ -50,7 +50,7 @@ def create_nutri_agent():
         temperature=LLM_TEMPERATURE,
         google_api_key=GOOGLE_API_KEY,
     )
-    return create_agent(llm, [buscar_recetas], system_prompt=SYSTEM_PROMPT)
+    return create_react_agent(llm, [buscar_recetas], prompt=SYSTEM_PROMPT)
 
 
 def truncate_history(history: list, max_messages: int = MAX_HISTORY_MESSAGES) -> list:

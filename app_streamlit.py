@@ -14,7 +14,7 @@ import base64
 import streamlit as st
 from langchain_google_genai import ChatGoogleGenerativeAI
 from langchain_core.messages import HumanMessage, AIMessage
-from langchain.agents import create_agent
+from langgraph.prebuilt import create_react_agent
 from config import GOOGLE_API_KEY, LLM_MODEL, LLM_TEMPERATURE, SYSTEM_PROMPT
 from agent_tools import buscar_recetas
 
@@ -55,7 +55,7 @@ def init_agent():
         temperature=LLM_TEMPERATURE,
         google_api_key=GOOGLE_API_KEY,
     )
-    return create_agent(llm, [buscar_recetas], system_prompt=SYSTEM_PROMPT)
+    return create_react_agent(llm, [buscar_recetas], prompt=SYSTEM_PROMPT)
 
 
 # Estado de sesión

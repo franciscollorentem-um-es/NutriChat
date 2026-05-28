@@ -16,7 +16,7 @@ sys.path.insert(0, os.path.join(os.path.dirname(__file__), ".."))
 import time
 from langchain_google_genai import ChatGoogleGenerativeAI
 from langchain_core.messages import HumanMessage, AIMessage
-from langchain.agents import create_agent
+from langgraph.prebuilt import create_react_agent
 from config import (
     GOOGLE_API_KEY, LLM_MODEL, LLM_TEMPERATURE,
     LLM_MAX_RETRIES, LLM_RETRY_WAIT_SECONDS,
@@ -130,7 +130,7 @@ def main():
         temperature=LLM_TEMPERATURE,
         google_api_key=GOOGLE_API_KEY,
     )
-    agent = create_agent(llm, [buscar_recetas], system_prompt=SYSTEM_PROMPT_EN)
+    agent = create_react_agent(llm, [buscar_recetas], prompt=SYSTEM_PROMPT_EN)
     chat_history: list = []
 
     print("\nNutriChat (Prompt EN) está listo. Escribe 'salir' para terminar.\n")

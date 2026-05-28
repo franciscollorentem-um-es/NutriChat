@@ -32,7 +32,7 @@ from pydantic import BaseModel, Field
 from langchain_core.tools import tool
 from langchain_google_genai import ChatGoogleGenerativeAI
 from langchain_core.messages import HumanMessage, AIMessage
-from langchain.agents import create_agent
+from langgraph.prebuilt import create_react_agent
 from sentence_transformers import SentenceTransformer
 
 from config import (
@@ -295,7 +295,7 @@ def main():
         temperature=LLM_TEMPERATURE,
         google_api_key=GOOGLE_API_KEY,
     )
-    agent = create_agent(llm, [buscar_recetas_embeddings], system_prompt=SYSTEM_PROMPT)
+    agent = create_react_agent(llm, [buscar_recetas_embeddings], prompt=SYSTEM_PROMPT)
     chat_history: list = []
 
     print(f"\nNutriChat ({nombre}) esta listo. Escribe 'salir' para terminar.\n")

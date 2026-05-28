@@ -22,7 +22,7 @@ from pydantic import BaseModel, Field
 from langchain_core.tools import tool
 from langchain_google_genai import ChatGoogleGenerativeAI
 from langchain_core.messages import HumanMessage, AIMessage
-from langchain.agents import create_agent
+from langgraph.prebuilt import create_react_agent
 from config import (
     GOOGLE_API_KEY, LLM_MODEL, LLM_TEMPERATURE, SYSTEM_PROMPT,
     LLM_MAX_RETRIES, LLM_RETRY_WAIT_SECONDS,
@@ -162,7 +162,7 @@ def main():
         google_api_key=GOOGLE_API_KEY,
     )
     # Se usa la herramienta SIN FILTROS en vez de la normal
-    agent = create_agent(llm, [buscar_recetas_sin_filtros], system_prompt=SYSTEM_PROMPT)
+    agent = create_react_agent(llm, [buscar_recetas_sin_filtros], prompt=SYSTEM_PROMPT)
     chat_history: list = []
 
     print(f"\nRecetas en la BD: {get_db().count:,}")
