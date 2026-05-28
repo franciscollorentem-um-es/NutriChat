@@ -25,12 +25,11 @@ NutriChat permite buscar recetas saludables mediante lenguaje natural, aplicando
 
 ## Instalación
 
-1. Clonar el repositorio y moverte a él:
+1. Clonar el repositorio y desplazarte a él:
 ```bash
-git clone https://github.com/[usuario]/nutrichat.git
+git clone https://github.com/franciscollorentem-um-es/nutrichat.git
 cd nutrichat
 ```
-
 2. Crear y activar un entorno virtual:
 ```bash
 python -m venv .venv
