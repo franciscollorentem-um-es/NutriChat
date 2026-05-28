@@ -6,6 +6,7 @@ NutriChat permite buscar recetas saludables mediante lenguaje natural, aplicando
 
 ## Tecnologías
 
+- **Lenguaje**: Python 3.12.10 (Versión estricta requerida por dependencias)
 - **LLM**: Google Gemini 2.5 Flash (API gratuita)
 - **Base de datos vectorial**: ChromaDB con persistencia local
 - **Embeddings**: paraphrase-multilingual-MiniLM-L12-v2 (multilingue, 384 dimensiones)
@@ -24,7 +25,7 @@ NutriChat permite buscar recetas saludables mediante lenguaje natural, aplicando
 
 ## Instalación
 
-1. Clonar el repositorio:
+1. Clonar el repositorio y moverte a él:
 ```bash
 git clone https://github.com/[usuario]/nutrichat.git
 cd nutrichat
@@ -58,6 +59,7 @@ python preprocesamiento.py
 ```
 
 6. Ingestar las recetas en ChromaDB:
+> **Nota para usuarios de Windows:** Si al ejecutar el siguiente comando obtienes un error, es probable que necesites instalar [Microsoft Visual C++ Redistributable](https://aka.ms/vs/17/release/vc_redist.x64.exe). Es un requisito del sistema para que el motor de embeddings y ChromaDB puedan ejecutarse correctamente.
 ```bash
 python ingest_data.py
 ```
