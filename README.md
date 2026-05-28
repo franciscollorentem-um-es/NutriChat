@@ -44,9 +44,13 @@ source .venv/bin/activate
 pip install -r requirements.txt
 ```
 
-4. Configurar la API key:
-# Crear (basándose en .env.example) .env y poner la GOOGLE_API_KEY
-
+4. Configurar la API key (añadir una api key real):
+```bash
+# Windows
+Copy-Item .env.example .env
+# Linux/Mac
+cp .env.example .env
+```
 
 5. Preprocesar el dataset:
 ```bash
@@ -75,10 +79,10 @@ streamlit run app_streamlit.py
 La carpeta `evaluaciones/` contiene scripts para comparar distintas configuraciones del sistema. Todos se ejecutan desde esta carpeta y acceden a los modulos principales del proyecto automaticamente.
 
 - **app_sin_rag.py** — Sin RAG (solo LLM) vs con RAG
-- **app_sin_filtros.py** — Solo busqueda semantica vs busqueda hibrida (semantica + filtros)
-- **app_prompt_ingles.py** — System prompt en ingles vs en espanol
+- **app_sin_filtros.py** — Solo busqueda semántica vs busqueda hibrida (semantica + filtros)
+- **app_prompt_ingles.py** — System prompt en inglés vs en español
 - **app_embeddings.py** — Modelos de embeddings alternativos (all-MiniLM-L6-v2, all-mpnet-base-v2)
-- **benchmark.py** — Evaluacion formal con metricas nDCG@5 y MRR sobre 15 consultas de referencia
+- **benchmark.py** — Evaluación formal con metricas nDCG@5 y MRR sobre 15 consultas de referencia
 
 Ejemplo de uso:
 ```bash
@@ -91,25 +95,25 @@ python benchmark.py
 
 ```
 nutrichat/
-├── config.py                    # Configuracion centralizada
+├── config.py                    # Configuración centralizada
 ├── preprocesamiento.py          # Pipeline de limpieza del dataset
 ├── ingest_data.py               # Pipeline ETL (CSV -> ChromaDB)
 ├── nutri_vectordb.py            # Capa de acceso a ChromaDB
 ├── agent_tools.py               # Herramienta de busqueda + esquema Pydantic
-├── app_nutrichat.py             # Aplicacion CLI principal
+├── app_nutrichat.py             # Aplicación CLI principal
 ├── app_streamlit.py             # Interfaz web con Streamlit
 ├── requirements.txt             # Dependencias
 ├── .env.example                 # Ejemplo del archivo .env
 ├── .gitignore                   # Reglas de exclusión de archivos para Git
-├── README.md                    # Documentacion del proyecto
+├── README.md                    # Documentación del proyecto
 ├── dataset/
 │   └── diet_type_recipes.csv    # Dataset original
 └── evaluaciones/
-    ├── app_sin_rag.py           # Comparacion: sin RAG vs con RAG
-    ├── app_sin_filtros.py       # Comparacion: sin filtros vs con filtros
-    ├── app_prompt_ingles.py     # Comparacion: prompt ingles vs espanol
-    ├── app_embeddings.py        # Comparacion: modelos de embeddings
-    └── benchmark.py             # Evaluacion sistema de recuperación (nDCG@5, MRR)
+    ├── app_sin_rag.py           # Comparación: sin RAG vs con RAG
+    ├── app_sin_filtros.py       # Comparación: sin filtros vs con filtros
+    ├── app_prompt_ingles.py     # Comparación: prompt inglés vs español
+    ├── app_embeddings.py        # Comparación: modelos de embeddings
+    └── benchmark.py             # Evaluación sistema de recuperación (nDCG@5, MRR)
 ```
 
 ## Autor
