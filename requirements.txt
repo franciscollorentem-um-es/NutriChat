@@ -1,0 +1,32 @@
+# ──────────────────────────────────────────────
+# NutriChat — Dependencias
+# ──────────────────────────────────────────────
+# Instalar con: pip install -r requirements.txt
+
+# LLM Framework
+langchain==0.3.25
+langchain-core==0.3.55
+langchain-community==0.3.23
+langchain-google-genai>=2.1.0
+langgraph>=0.3.0
+
+# Vector DB
+chromadb>=0.5.0
+
+# Embeddings
+sentence-transformers>=3.0.0
+
+# Datos
+pandas>=2.0.0
+tqdm>=4.60.0
+
+# Configuración
+python-dotenv>=1.0.0
+pydantic>=2.0.0
+
+# Interfaz web
+streamlit>=1.38.0
+
+# Evaluación
+numpy>=1.24.0
+matplotlib>=3.7.0

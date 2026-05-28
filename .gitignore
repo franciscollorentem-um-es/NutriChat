@@ -1,0 +1,23 @@
+# API keys y configuración sensible
+.env
+
+# Entorno virtual
+.venv/
+
+# Base de datos vectorial
+chroma_nutri_db/
+
+# Cache de Python
+__pycache__/
+*.pyc
+
+# Ficheros temporales de Word
+~$*.docx
+
+# Dataset original 
+*.csv
+!dataset/diet_type_recipes.csv
+
+# Ficheros del sistema
+.DS_Store
+Thumbs.db
